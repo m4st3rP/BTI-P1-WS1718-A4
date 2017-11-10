@@ -25,12 +25,12 @@ public class Hand {
     // Create new temporary hand
     Card[] newCardsInHand = new Card[newArrayLength];
     // Add every card from old hand into new hand
-    for (int k = 0; k < this.cardsInHand.length; k++) {
-      newCardsInHand[k] = this.cardsInHand[k];
+    for (int i = 0; i < this.cardsInHand.length; i++) {
+      newCardsInHand[i] = this.cardsInHand[i];
     }
     // Add every card from new cards to temporary hand
-    for (int i = this.cardsInHand.length; i < newCardsInHand.length; i++) {
-      newCardsInHand[i] = card[i - this.cardsInHand.length];
+    for (int j = this.cardsInHand.length; j < newCardsInHand.length; j++) {
+      newCardsInHand[j] = card[j - this.cardsInHand.length];
     }
     this.cardsInHand = newCardsInHand;
   }
@@ -46,12 +46,12 @@ public class Hand {
     // Create new temporary hand
     Card[] newCardsInHand = new Card[newArrayLength];
     // Add every card from old hand into new hand
-    for (int k = 0; k < this.cardsInHand.length; k++) {
-      newCardsInHand[k] = this.cardsInHand[k];
+    for (int i = 0; i < this.cardsInHand.length; i++) {
+      newCardsInHand[i] = this.cardsInHand[i];
     }
     // Add every card from handed over hand (pun intended) to temporary hand
-    for (int i = this.cardsInHand.length; i < newCardsInHand.length; i++) {
-      newCardsInHand[i] = hand.cardsInHand[i - this.cardsInHand.length];
+    for (int j = this.cardsInHand.length; j < newCardsInHand.length; j++) {
+      newCardsInHand[j] = hand.cardsInHand[j - this.cardsInHand.length];
     }
     this.cardsInHand = newCardsInHand;
   }
