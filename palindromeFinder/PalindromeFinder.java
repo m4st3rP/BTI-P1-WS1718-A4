@@ -16,14 +16,13 @@ public class PalindromeFinder {
   public String getLongestPalindrome() {
     char[] textAsArray = this.text.toCharArray();
     String longestPalindrome = "";
-    int repetitionCounter = 1;
     int a = 0;
-    int b = textAsArray.length - repetitionCounter;;
+    int b = textAsArray.length - 1;
 
     if (textAsArray.length > 0) {
-      for (int i = 0; i < repetitionCounter; i++) {
+      for (int i = 1; i <= textAsArray.length; i++) {
         a = 0;
-        b = textAsArray.length - repetitionCounter;
+        b = textAsArray.length - i;
 
         while (b < textAsArray.length) {
           if (isPalindrome(a, b, textAsArray)) {
@@ -34,7 +33,6 @@ public class PalindromeFinder {
           a++;
           b++;
         }
-        repetitionCounter++;
       }
     }
     return null;
@@ -52,3 +50,4 @@ public class PalindromeFinder {
     return a >= b;
   }
 }
+
