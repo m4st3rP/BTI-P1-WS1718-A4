@@ -20,22 +20,24 @@ public class PalindromeFinder {
     int a = 0;
     int b = textAsArray.length - repetitionCounter;;
 
-    for (int i = 0; i<repetitionCounter; i++) {
-      a = 0;
-      b = textAsArray.length - repetitionCounter;
-      while (isPalindrome(a, b, textAsArray) == false || a<b) {
-        a++;
-        b++;
+    if (textAsArray.length > 0) {
+      for (int i = 0; i < repetitionCounter; i++) {
+        a = 0;
+        b = textAsArray.length - repetitionCounter;
+
+        while (b < textAsArray.length) {
+          if (isPalindrome(a, b, textAsArray)) {
+            for (int j = a; j <= b; j++)
+              longestPalindrome += textAsArray[j];
+            return longestPalindrome;
+          }
+          a++;
+          b++;
+        }
+        repetitionCounter++;
       }
-      repetitionCounter++;
     }
-    
-    //TODO entfernen
-    System.out.println(a + ", " + b);
-    for (int i = a; i <= b; i++) {
-      longestPalindrome = longestPalindrome + textAsArray[i];
-    }
-    return longestPalindrome;
+    return null;
   }
 
   public void setText(String givenText) {
@@ -50,4 +52,3 @@ public class PalindromeFinder {
     return a >= b;
   }
 }
-
