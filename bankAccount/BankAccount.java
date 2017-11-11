@@ -1,8 +1,6 @@
 package bankAccount;
 
-// TODO Es wird mit Cent-Beträgen und auf den Cent genau gerechnet.
 // TODO Die Bank rundet immer zu ihrem Vorteil.
-// TODO Konten dürfen zu keinem Zeitpunkt negative Kontostände annehmen.
 public class BankAccount {
   String id;
   long balance;
@@ -25,10 +23,14 @@ public class BankAccount {
   public void withdraw(long amount) {
     if (this.balance - amount >= 0) {
       this.balance = this.balance - amount;
+    } else {
+      System.out.println("The account balance is not allowed to go below 0!");
     }
   }
 
   public void deposit(long amount) {
     this.balance = this.balance + amount;
   }
+  
+  //TODO Hier auch toString methode?
 }

@@ -1,8 +1,6 @@
 package bankAccount;
 
 public class CurrentAccount extends BankAccount {
-  String id;
-  long balance;
   int fee;
 
   public CurrentAccount(String id, long startBalance, int fee) {
@@ -13,9 +11,19 @@ public class CurrentAccount extends BankAccount {
   public long getAccountBalance() {
     return this.balance;
   }
+  
+  @Override
+  public void withdraw(long amount) {
+    if (this.balance - (amount + this.fee) >= 0) {
+      this.balance = this.balance - (amount + this.fee);
+    } else {
+      System.out.println("The account balance is not allowed to go below 0!");
+    }
+  }
 
   // TODO mit String.format() überarbeiten?
+  @Override
   public String toString() {
-    return "Class: " + this.getClass() + "\nID: " + this.id + "\nBalance: " + this.balance + "\nWithdrawal Fee: " + this.fee + "\n";
+    return "Account Type: " + this.getClass().getSimpleName() + "\nID: " + this.id + "\nBalance: " + this.balance + "\nWithdrawal Fee: " + this.fee + "\n";
   }
 }
