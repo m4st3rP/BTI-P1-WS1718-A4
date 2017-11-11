@@ -24,6 +24,10 @@ public class CurrentAccount extends BankAccount {
   // TODO mit String.format() überarbeiten?
   @Override
   public String toString() {
-    return "Account Type: " + this.getClass().getSimpleName() + "\nID: " + this.id + "\nBalance: " + this.balance + "\nWithdrawal Fee: " + this.fee + "\n";
+    return "Account Type: "     + this.getClass().getSimpleName() +
+           "\nID: "             + this.id +
+           "\nBalance: "        + this.balance +
+           "\nWithdrawal Fee: " + this.fee +
+           "\n";
   }
 }
