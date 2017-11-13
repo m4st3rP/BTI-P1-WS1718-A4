@@ -10,7 +10,7 @@ public class TransferManager {
     if (newAmount != oldAmount) {
       targetAccount.deposit(amount);
     } else {
-      System.out.println("Withdrawal failed!");
+      System.out.println("Withdrawal failed!\n");
     }
   }
 }
