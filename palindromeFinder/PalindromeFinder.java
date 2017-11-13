@@ -1,7 +1,7 @@
 package palindromeFinder;
 
 public class PalindromeFinder {
-  String text;
+  private String text;
 
   public PalindromeFinder() {}
 
