@@ -1,7 +1,7 @@
 package bankAccount;
 
 public class SavingsAccount extends BankAccount {
-  int interestRate;
+  private int interestRate;
 
   public SavingsAccount(String id, long startBalance, int interestRate) {
     super(id, startBalance);
@@ -9,18 +9,12 @@ public class SavingsAccount extends BankAccount {
   }
 
   public void giveInterest() {
-    // TODO die ganzen this notwendig?
     // Since long always round down this operation is always in benefit of the bank
-    this.balance = this.balance + this.balance * this.interestRate / 1000;
+    deposit(getAccountBalance()*this.interestRate / 1000);
   }
 
-  // TODO mit String.format() überarbeiten?
   @Override
   public String toString() {
-    return "Account Type: "    + this.getClass().getSimpleName() +
-           "\nID: "            + this.id +
-           "\nBalance: "       + this.balance +
-           "\nInterest Rate: " + this.interestRate +
-           "\n";
+    return super.toString() + "Interest Rate: " + this.interestRate + "\n";
   }
 }
