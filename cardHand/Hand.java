@@ -3,7 +3,7 @@ package cardHand;
 import cards.Card;
 
 public class Hand {
-  Card[] cardsInHand;
+  private Card[] cardsInHand;
 
   /**
    * Constructor of a hand object.
