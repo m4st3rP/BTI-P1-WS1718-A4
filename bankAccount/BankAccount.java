@@ -1,6 +1,7 @@
 package bankAccount;
 
 // TODO Die Bank rundet immer zu ihrem Vorteil.
+// TODO toString wegen string.format überarbeiten
 public class BankAccount {
   private String id;
   private long balance;
