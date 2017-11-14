@@ -15,6 +15,6 @@ public class CurrentAccount extends BankAccount {
 
   @Override
   public String toString() {
-    return super.toString() + "Withdrawal Fee: " + this.fee + "\n";
+    return super.toString() + " Withdrawal Fee: " + this.fee;
   }
 }
