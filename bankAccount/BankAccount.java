@@ -38,6 +38,6 @@ public class BankAccount {
 
   @Override
   public String toString() {
-    return String.format("Account Type: " + getClass().getSimpleName() + "\nID: " + id + "\nBalance: " + balance + "\n");
+    return String.format("Account Type: " + getClass().getSimpleName() + " ID: " + id + " Balance: " + balance);
   }
 }
