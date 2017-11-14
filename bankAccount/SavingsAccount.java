@@ -15,6 +15,6 @@ public class SavingsAccount extends BankAccount {
 
   @Override
   public String toString() {
-    return super.toString() + "Interest Rate: " + this.interestRate + "\n";
+    return super.toString() + " Interest Rate: " + this.interestRate;
   }
 }
