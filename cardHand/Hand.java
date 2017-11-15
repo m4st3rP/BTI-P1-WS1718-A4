@@ -2,6 +2,12 @@ package cardHand;
 
 import cards.Card;
 
+/**
+ * A class that creates a hand object that can hold cards.
+ * 
+ * @author Philipp Schwarz
+ *
+ */
 public class Hand {
   private Card[] cardsInHand;
 
