@@ -1,73 +1,51 @@
 package bankAccount;
 
-/**
- * A bank account class to create objects of the type BankAccount.
- * 
- * @author Philipp Schwarz
- *
- */
 public class BankAccount {
-  private String id;
-  private long balance;
 
-  /**
-   * A constructor of a bank account.
-   * 
-   * @param id The id of the bank account.
-   * @param startBalance The start balance of the bank account.
-   */
-  public BankAccount(String id, long startBalance) {
-    this.id = id;
-    // to ensure that the balance is never below 0
-    if (startBalance >= 0) {
-      this.balance = startBalance;
-    } else {
-      this.balance = 0;
+    private String id;
+    private long balance;
+
+    
+    
+    public BankAccount(String id, long balance) {
+        this.id = id;
+        assert balance >= 0 : "Balance cannot be negative!";
+        this.balance = balance;
     }
-  }
 
-  /**
-   * A constructor of a bank account.
-   * 
-   * @param id The id of the bank account.
-   */
-  public BankAccount(String id) {
-    this.id = id;
-    this.balance = 0;
-  }
-
-  /**
-   * @return Account Balance of the object.
-   */
-  public long getAccountBalance() {
-    return this.balance;
-  }
-
-  /**
-   * To withdraw money from the bank account.
-   * 
-   * @param amount The amount of money in cents to be withdrawn.
-   */
-  public void withdraw(long amount) {
-    // check if the amount can be withdrawn without the balance going below 0
-    if (this.balance - amount >= 0) {
-      this.balance = this.balance - amount;
-    } else {
-      System.out.println("The account balance is not allowed to go below 0!\n");
+    public BankAccount(String id) {
+        this( id, 0 );
     }
-  }
+    
+    
+    
+    /**
+     * 
+     * @param amount the amount to withdraw
+     * @return true if valid transaction happened, false if no transaction happened
+     */
+    public void withdraw(long amount) {
+        assert amount >= 0 : "Cannot withdraw negative amount!";
+        assert balance >= amount : "Cannot execute transaction, because of insufficient funds (balance < amount)";
+        balance -= amount;
+    }
 
-  /**
-   * To deposit money to the bank account.
-   * 
-   * @param amount The amount of money in cents to be deposited.
-   */
-  public void deposit(long amount) {
-    this.balance = this.balance + amount;
-  }
+    public void deposit(long amount) {
+        assert amount >= 0 : "Cannot deposit negative amount!";
+        balance += amount;
+    }
 
-  @Override
-  public String toString() {
-    return String.format("[<%s>: ID=%s, Balance=%d, ", getClass().getSimpleName(), id, balance);
-  }
+    public long getAccountBalance() {
+        return balance;
+    }
+
+    @Override
+    public String toString() {
+      return String.format(
+          "[<%s>: ID=%s, Balance=%d]",
+          BankAccount.class.getSimpleName(),
+          id,
+          balance
+      );
+    }
 }
