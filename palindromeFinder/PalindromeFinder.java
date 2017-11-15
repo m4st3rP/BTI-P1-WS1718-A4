@@ -12,7 +12,9 @@ public class PalindromeFinder {
   /**
    * A parameterless constructor.
    */
-  public PalindromeFinder() {}
+  public PalindromeFinder() {
+      text = "";
+  }
 
   /**
    * A non-paramterless constructor.
@@ -20,7 +22,7 @@ public class PalindromeFinder {
    * @param givenText The String where the longest Palindrome will be searched for.
    */
   public PalindromeFinder(String givenText) {
-    this.text = givenText;
+    text = givenText;
   }
 
   /**
@@ -35,22 +37,23 @@ public class PalindromeFinder {
    * that has the length of the String, then length-1 and so on while going from left to right until
    * it finds on which it will return immediately.
    * 
-   * @return The longest palindrome as string.
+   * @return The longest palindrome as string if exist
+   *         null if no Palindrom found
+   * 
    */
   public String getLongestPalindrome() {
     // convert String to Char array to make it easier to work with
     char[] textAsArray = this.text.toCharArray();
     String longestPalindrome = "";
     int firstPosition = 0;
-    int lastPosition = textAsArray.length - 1;
 
-    // check if the string has atleast one character
+    // check if the string has at least one character
     if (textAsArray.length > 0) {
       // repeat at most the length of the String times
       for (int i = 1; i <= textAsArray.length; i++) {
         firstPosition = 0;
         // decrease length of area we search a palindrome for by one each step
-        lastPosition = textAsArray.length - i;
+        int lastPosition = textAsArray.length - i;
 
         // only repeat until lastPosition reaches end of string
         while (lastPosition < textAsArray.length) {
@@ -98,4 +101,3 @@ public class PalindromeFinder {
     return a >= b;
   }
 }
-
