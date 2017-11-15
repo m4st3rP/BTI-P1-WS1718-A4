@@ -1,6 +1,7 @@
 package cardHand;
 
 import cards.Card;
+import cards.Card.Suit;
 
 /**
  * A class that creates a hand object that can hold cards.
@@ -26,7 +27,7 @@ public class Hand {
    * @param card The cards that will be added to the current hand.
    */
   public void add(Card... card) {
-    int newArrayLength = this.cardsInHand.length + card.length;
+    final int newArrayLength = this.cardsInHand.length + card.length;
 
     // Create new temporary hand
     Card[] newCardsInHand = new Card[newArrayLength];
@@ -65,18 +66,14 @@ public class Hand {
   /**
    * @return Boolean if cards on hand have the same colour.
    */
-  public boolean isSuited() {
-    boolean isSuited = true;
-
-    // Compare each card with the following ones.
-    for (int i = 0; i < cardsInHand.length - 1; i++) {
-      for (int j = i + 1; j < cardsInHand.length; j++) {
-        if (cardsInHand[i].getSuit() != cardsInHand[j].getSuit()) {
-          isSuited = false;
-        }
-      }
-    }
-    return isSuited;
+  public boolean isSuited()  {
+      Suit lastSuit = cardsInHand[0].getSuit();
+      for(int i = 1; i < cardsInHand.length; i++) {   
+          if(!lastSuit.equals(cardsInHand[i].getSuit())) 
+              return false;
+          lastSuit = cardsInHand[i].getSuit();
+      }     
+      return true;
   }
 
   /**
@@ -95,5 +92,4 @@ public class Hand {
   public void setHand(Card... cards) {
     this.cardsInHand = cards;
   }
-
 }
